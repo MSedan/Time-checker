@@ -4,16 +4,31 @@ import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
-
-        // Setting up input
-        System.out.println("Enter start time");
         Scanner input = new Scanner(System.in);
-        String startTime = input.nextLine();
-        System.out.println("Enter end time");
-        String endTime = input.nextLine();
 
-        System.out.println("Start time " + isValidTime(startTime));
-        System.out.println("Start time " + isValidTime(endTime));
+        do {
+            // Setting up input
+            System.out.println("Enter start time");
+
+            String startTime = input.nextLine();
+            if (isValidTime(startTime) == false) {
+                System.out.println("Time is not valid or in incorrect format");
+                System.out.println("Exiting program");
+                break;
+            }
+
+            System.out.println("Enter end time");
+            String endTime = input.nextLine();
+            if (isValidTime(endTime) == false) {
+                System.out.println("Time is not valid or in incorrect format");
+                System.out.println("Exiting program");
+                break;
+            }
+
+            System.out.println("Start time " + isValidTime(startTime));
+            System.out.println("End time " + isValidTime(endTime));
+
+        } while (true);
     }
 
 
@@ -23,4 +38,5 @@ public class Main {
         if (time == null) return false;
         return Time.matcher(time).matches();
     }
+
 }
