@@ -15,7 +15,7 @@ public class Main {
             System.out.println("Palun sisestage alguskellaaeg");
 
             String startTime = input.nextLine();
-            if (isValidTime(startTime) == false) {
+            if (!isValidTime(startTime)) {
                 System.out.println("Sisestatud aeg ei ole korrektne");
                 System.out.println("Programmist väljumine.");
                 break;
@@ -23,7 +23,7 @@ public class Main {
 
             System.out.println("Sisestage lõppkellaaeg");
             String endTime = input.nextLine();
-            if (isValidTime(endTime) == false) {
+            if (!isValidTime(endTime)) {
                 System.out.println("Sisestatud aeg ei ole korrektne.");
                 System.out.println("Programmist väljumine");
                 break;
@@ -33,8 +33,8 @@ public class Main {
 
             double [] dayNightArray = calculateTime(startTime, endTime);
             //Printing final output for the user.
-            System.out.println("Päev: " + dayNightArray[0]);
-            System.out.println("Öö: " + dayNightArray[1]);
+            System.out.println("Päev: " + dayNightArray[0] + " tundi");
+            System.out.println("Öö: " + dayNightArray[1] + " tundi");
 
             System.out.println("Kui soovid sisestada veel kellaaegu, vali 1 \n" + "Programmist väljumiseks vali 0");
             System.out.println("Sisesta valik:");
